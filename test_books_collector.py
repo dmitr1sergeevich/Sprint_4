@@ -77,3 +77,14 @@ class TestFavorites:
         collector.add_book_in_favorites("Книга 1")
         collector.add_book_in_favorites("Книга 2")
         assert collector.get_list_of_favorites_books() == ["Книга 1", "Книга 2"]
+
+
+class TestGetBooksGenre:
+    def test_get_books_genre_returns_all_books(self, collector):
+        collector.add_new_book("Книга 1")
+        collector.add_new_book("Книга 2")
+        result = collector.get_books_genre()
+        assert isinstance(result, dict)
+        assert "Книга 1" in result
+        assert "Книга 2" in result
+
